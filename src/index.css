@@ -7,54 +7,54 @@
 @layer base {
   :root {
     /* Core colors */
-    --background: 248 250 252;
-    --foreground: 15 23 42;
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
     
     /* Brand colors */
-    --primary: 217 91% 60%;  /* Azul ComMarília */
-    --primary-foreground: 248 250 252;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
     --primary-accent: 234 89% 74%;
     
-    --secondary: 249 115% 22%;  /* Laranja Marília */
-    --secondary-foreground: 248 250 252;
-    --secondary-accent: 249 100% 30%;
+    --secondary: 24 95% 58%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-accent: 28 92% 50%;
     
     /* UI colors */
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
     --card-shadow: 226 58% 21% / 0.08;
     
-    --muted: 241 245 249;
-    --muted-foreground: 100 116 139;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
     
-    --accent: 241 245 249;
-    --accent-foreground: 15 23 42;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
     
-    --border: 226 232 240;
-    --input: 226 232 240;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
     --ring: 217 91% 60%;
     
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 248 250 252;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
     
     --success: 142 71% 45%;
-    --success-foreground: 248 250 252;
+    --success-foreground: 210 40% 98%;
     
     /* Category colors */
-    --category-destaque: 314 87% 47%;  /* Rosa destaque */
-    --category-marilia: 217 91% 60%;   /* Azul Marília */
-    --category-regiao: 262 83% 58%;    /* Roxo região */
-    --category-brasil: 142 71% 45%;    /* Verde Brasil */
-    --category-mundo: 25 95% 53%;      /* Laranja mundo */
-    --category-esportes: 0 84% 60%;    /* Vermelho esportes */
-    --category-entretenimento: 262 80% 40%; /* Roxo entretenimento */
+    --category-destaque: 314 87% 47%;
+    --category-marilia: 217 91% 60%;
+    --category-regiao: 262 83% 58%;
+    --category-brasil: 142 71% 45%;
+    --category-mundo: 25 95% 53%;
+    --category-esportes: 0 84% 60%;
+    --category-entretenimento: 262 80% 40%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(234 89% 74%));
-    --gradient-secondary: linear-gradient(135deg, hsl(249 115% 22%), hsl(249 100% 30%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(262 83% 58%) 50%, hsl(249 115% 22%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(255 255 255) 0%, hsl(248 250 252) 100%);
-    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(15 23 42 / 0.8) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(24 95% 58%), hsl(28 92% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(262 83% 58%) 50%, hsl(24 95% 58%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(222.2 84% 4.9% / 0.8) 100%);
     
     /* Shadows */
     --shadow-sm: 0 1px 3px hsl(226 58% 21% / 0.12);
