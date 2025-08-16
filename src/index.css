@@ -2,41 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ComMarília Design System - Cores profissionais e gradientes modernos */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    /* Core colors */
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+    
+    /* Brand colors */
+    --primary: 217 91% 60%;  /* Azul ComMarília */
+    --primary-foreground: 248 250 252;
+    --primary-accent: 234 89% 74%;
+    
+    --secondary: 249 115% 22%;  /* Laranja Marília */
+    --secondary-foreground: 248 250 252;
+    --secondary-accent: 249 100% 30%;
+    
+    /* UI colors */
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --card-shadow: 226 58% 21% / 0.08;
+    
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+    
+    --accent: 241 245 249;
+    --accent-foreground: 15 23 42;
+    
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 217 91% 60%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 248 250 252;
+    
+    --success: 142 71% 45%;
+    --success-foreground: 248 250 252;
+    
+    /* Category colors */
+    --category-destaque: 314 87% 47%;  /* Rosa destaque */
+    --category-marilia: 217 91% 60%;   /* Azul Marília */
+    --category-regiao: 262 83% 58%;    /* Roxo região */
+    --category-brasil: 142 71% 45%;    /* Verde Brasil */
+    --category-mundo: 25 95% 53%;      /* Laranja mundo */
+    --category-esportes: 0 84% 60%;    /* Vermelho esportes */
+    --category-entretenimento: 262 80% 40%; /* Roxo entretenimento */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(234 89% 74%));
+    --gradient-secondary: linear-gradient(135deg, hsl(249 115% 22%), hsl(249 100% 30%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(262 83% 58%) 50%, hsl(249 115% 22%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(255 255 255) 0%, hsl(248 250 252) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(15 23 42 / 0.8) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px hsl(226 58% 21% / 0.12);
+    --shadow-md: 0 4px 12px hsl(226 58% 21% / 0.15);
+    --shadow-lg: 0 10px 25px hsl(226 58% 21% / 0.2);
+    --shadow-xl: 0 20px 40px hsl(226 58% 21% / 0.25);
+    --shadow-glow: 0 0 30px hsl(217 91% 60% / 0.4);
+    
+    /* Animations */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +132,218 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: 'cv11', 'cv03', 'cv04', 'cv09';
+  }
+}
+
+/* ComMarília Components */
+@layer components {
+  /* Logo styling */
+  .cm-logo {
+    @apply text-2xl font-extrabold tracking-tight;
+  }
+  
+  .cm-logo .com {
+    color: hsl(var(--primary));
+  }
+  
+  .cm-logo .marilia {
+    color: hsl(var(--secondary));
+  }
+  
+  /* Floating buttons */
+  .cm-float-container {
+    @apply fixed bottom-6 right-6 z-50 flex flex-col gap-3;
+  }
+  
+  .cm-float-btn {
+    @apply flex items-center gap-3 px-4 py-3 rounded-full shadow-lg transition-all duration-300;
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+  }
+  
+  .cm-float-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+  }
+  
+  .cm-float-btn.compact {
+    @apply px-3 py-3;
+  }
+  
+  .cm-float-btn.compact .label {
+    @apply hidden;
+  }
+  
+  /* Category badges */
+  .cm-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold text-white shadow-sm;
+  }
+  
+  .cm-badge-destaque { background-color: hsl(var(--category-destaque)); }
+  .cm-badge-marilia { background-color: hsl(var(--category-marilia)); }
+  .cm-badge-regiao { background-color: hsl(var(--category-regiao)); }
+  .cm-badge-brasil { background-color: hsl(var(--category-brasil)); }
+  .cm-badge-mundo { background-color: hsl(var(--category-mundo)); }
+  .cm-badge-esportes { background-color: hsl(var(--category-esportes)); }
+  .cm-badge-entretenimento { background-color: hsl(var(--category-entretenimento)); }
+  
+  /* Cards */
+  .cm-card {
+    @apply bg-card border border-border rounded-xl overflow-hidden transition-all duration-300;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .cm-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .cm-card-image {
+    @apply w-24 h-24 rounded-lg object-cover flex-shrink-0;
+  }
+  
+  /* Stories */
+  .cm-stories-container {
+    @apply px-4 py-6 bg-card border-b border-border;
+  }
+  
+  .cm-stories-grid {
+    @apply flex gap-4 overflow-x-auto pb-2;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .cm-stories-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .cm-story-item {
+    @apply flex flex-col items-center gap-2 cursor-pointer transition-transform duration-200;
+    min-width: 70px;
+  }
+  
+  .cm-story-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .cm-story-circle {
+    @apply w-16 h-16 rounded-full p-1 bg-gradient-to-br from-primary to-secondary;
+  }
+  
+  .cm-story-image {
+    @apply w-full h-full rounded-full object-cover border-2 border-white;
+  }
+  
+  .cm-story-label {
+    @apply text-xs font-medium text-foreground text-center leading-tight;
+    max-width: 70px;
+  }
+  
+  /* Modal overlays */
+  .cm-overlay {
+    @apply fixed inset-0 z-50 bg-black/60 backdrop-blur-sm;
+    animation: overlayShow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .cm-modal {
+    @apply bg-card rounded-t-2xl shadow-xl border border-border;
+    animation: modalSlideUp 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .cm-modal-header {
+    @apply flex items-center justify-between p-4 border-b border-border;
+  }
+  
+  .cm-modal-close {
+    @apply p-2 rounded-full bg-muted hover:bg-accent transition-colors;
+  }
+  
+  /* Article content */
+  .cm-article {
+    @apply prose prose-slate max-w-none;
+  }
+  
+  .cm-article img {
+    @apply w-full rounded-lg shadow-sm;
+  }
+  
+  .cm-article h1,
+  .cm-article h2,
+  .cm-article h3 {
+    @apply font-bold text-foreground;
+  }
+  
+  .cm-article p {
+    @apply text-muted-foreground leading-relaxed;
+  }
+  
+  /* Toast notifications */
+  .cm-toast {
+    @apply fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-4 rounded-full text-white font-medium shadow-lg z-50;
+    animation: toastShow 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .cm-toast.success {
+    background-color: hsl(var(--success));
+  }
+  
+  .cm-toast.error {
+    background-color: hsl(var(--destructive));
+  }
+  
+  /* Action buttons */
+  .cm-action-btn {
+    @apply w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-white/20 flex items-center justify-center text-foreground transition-all;
+  }
+  
+  .cm-action-btn:hover {
+    @apply bg-white scale-110;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Utilities */
+  .cm-scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .cm-scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Animations */
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toastShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }
